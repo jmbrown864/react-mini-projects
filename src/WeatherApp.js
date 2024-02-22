@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-// open weather API key: 7f7ba1645ac60c5da250138ca81b782e
+import { openWeatherKey } from "../Keys";
 
 export const WeatherApp = () => {
     const [search, setSearch] = useState('');
@@ -10,11 +9,10 @@ export const WeatherApp = () => {
         e.preventDefault();
 
         // convert to lat & long
-        const apiKey = "7f7ba1645ac60c5da250138ca81b782e";
         let latitute = 0;
         let longitude = 0;
 
-        fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${encodeURIComponent(search)}&appid=${encodeURIComponent(apiKey)}`, {
+        fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${encodeURIComponent(search)}&appid=${encodeURIComponent(openWeatherKey)}`, {
             method: 'GET'
         })
         .then((response) => response.json())
@@ -32,8 +30,6 @@ export const WeatherApp = () => {
         .then((response) => response.json())
         .then((data) => setSearchResults(data))
         .catch((error) => console.log(error));
-
-        // update results
     }
 
     return(
