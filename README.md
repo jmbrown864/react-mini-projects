@@ -22,6 +22,6 @@ Simple +, - counter.
 
 Add and remove todo's in a To Do list.
 
-## Weather App
+### Weather App
 
 Retrieve weather details for any location.
